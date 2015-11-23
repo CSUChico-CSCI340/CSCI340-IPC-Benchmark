@@ -17,7 +17,7 @@ git clone git@github.com:CSUChico-CSCI340/CSCI340-IPC-Benchmark.git
 </pre>
 
 Then go into the IPC Lab Handout directory
-
+
 Enter your name in the header comment at the top of *ipc.cc*
 
 Looking at the *ipc.cc* file, you will see that it contains a skeleton and some variables to get you started. To help you get started, I provided the wrapper for the signal handler from your shell assignment, which is in the *helper_routines.cc* file. You will only need to edit the *ipc.cc* file for this assignment.
@@ -97,23 +97,23 @@ Elapsed Time 32.317000
 
 ##Program Specification
 Your program should take the following arguments:
-
+
 * -p this argument should cause your program to benchmark pipes
 * -s this argument should cause your program to benchmark signals
 * [number] this argument is the number of tests you want to run. It is optional; if no value is specified, 10000 tests will be run.
 
 ##Checking Your Work
 I have provided some tools to help you check your work:
-
+
 * Reference solution. As in the shell assignment, a reference program has been included, *ipcref*, which is a fully functional version of this assignment. *Your program should emit output that is identical to the reference solution.*
 * Makefile. The Makefile takes arguments that allow you to test the default number of tests for pipes or signals. To test pipes messaging, type *make pipes* for signals type *make signals*.
 
 ##Hints
-
+
 Read the references links of this document on pipes.
-
+
 It is often helpful to run your program for a single iteration instead of many iterations.
-
+
 It is often helpful to trace the flow of your program and verify variable state by generating temporary debug output.
 
 Remove any temporary debug output before submitting your assignment! The output of your final submission must match the reference output exactly.
