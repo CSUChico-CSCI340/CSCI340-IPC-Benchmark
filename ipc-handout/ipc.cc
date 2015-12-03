@@ -1,6 +1,6 @@
-// 
-// 
-// 
+//
+//
+//
 // <Put your name and ID here>
 //
 
@@ -28,32 +28,32 @@ int numtests;
 double elapsedTime;
 
 
-void sigusr1_handler(int sig){	
-	
+void sigusr1_handler(int sig){
+
 }
 
-void sigusr2_handler(int sig){ 
-	
+void sigusr2_handler(int sig){
+
 }
 
-void sigint_handler(int sig){
-	
+void sigstp_handler(int sig){
+
 }
 
 
 //
-// main - The main routine 
+// main - The main routine
 //
 int main(int argc, char **argv){
 	//Initialize Constants here
-	
+
     //variables for Pipe
-	int fd1[2],fd2[2], nbytes;	
-	//byte size messages to be passed through pipes	
+	int fd1[2],fd2[2], nbytes;
+	//byte size messages to be passed through pipes
 	char    childmsg[] = "1";
 	char    parentmsg[] = "2";
 	char    quitmsg[] = "q";
-    
+
     /*Three Signal Handlers You Might Need
      *
      *I'd recommend using one signal to signal parent from child
@@ -61,23 +61,23 @@ int main(int argc, char **argv){
      */
     Signal(SIGUSR1,  sigusr1_handler); //User Defined Signal 1
     Signal(SIGUSR2,  sigusr2_handler); //User Defined Signal 2
-    Signal(SIGINT, sigint_handler);
-    
+    Signal(SIGTSTP, sigstp_handler);
+
     //Default Value of Num Tests
     numtests=10000;
     //Determine the number of messages was passed in from command line arguments
-    //Replace default numtests w/ the commandline argument if applicable 
+    //Replace default numtests w/ the commandline argument if applicable
     if(argc<2){
 		printf("Not enough arguments\n");
 		exit(0);
 	}
-    
+
     printf("Number of Tests %d\n", numtests);
     // start timer
-	gettimeofday(&t1, NULL); 
+	gettimeofday(&t1, NULL);
 	if(strcmp(argv[1],"-p")==0){
 		//code for benchmarking pipes over numtests
-		
+
 		// stop timer
 		gettimeofday(&t2, NULL);
 
@@ -88,8 +88,8 @@ int main(int argc, char **argv){
 	}
 	if(strcmp(argv[1],"-s")==0){
 		//code for benchmarking signals over numtests
-		
-		
+
+
 		// stop timer
 		gettimeofday(&t2, NULL);
 
@@ -98,16 +98,5 @@ int main(int argc, char **argv){
 		elapsedTime += (t2.tv_usec - t1.tv_usec) / 1000.0;   // us to ms
 		printf("Elapsed Time %f\n", elapsedTime);
 	}
-	
+
 }
-  
-
-
-
-
-
-
-
-
-
-
